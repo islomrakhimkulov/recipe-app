@@ -6,22 +6,32 @@
         </b-input-group>
         <h2 class="p-4 text-white text-center">Recipe App with Edamam API</h2>
         <div class="row g-3">
-           <div class="col-md-6 col-sm-12">
-                <div class="card h-100">
-                <img class="card-img-top" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">{{ this.test_data[0].recipe.label }}</h5>
-                    <p class="ps-1">{{  }}</p>
-                </div>
+           <div class="col-6">
+                <div class="card">
+                    <img :src="this.test_data[2].recipe.image" class="card-img-top " alt="card-image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ this.test_data[2].recipe.label }}</h5>
+                        <ul>
+                            <li v-for="item in this.test_data[2].recipe.ingredientLines" :key="item">
+                                {{ item }}
+                            </li>
+                        </ul>
+                        <p class="ps-1">Calories: {{ this.test_data[2].recipe.calories.toFixed(2) }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div class="card h-100">
-                <img class="card-img-top" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">{{ this.test_data[0].recipe.label }}</h5>
-                    <p class="ps-1">{{  }}</p>
-                </div>
+            <div class="col-6">
+                <div class="card">
+                    <img :src="this.test_data[0].recipe.image" class="card-img-top " alt="card-image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ this.test_data[0].recipe.label }}</h5>
+                        <ul>
+                            <li v-for="item in this.test_data[0].recipe.ingredientLines" :key="item">
+                                {{ item }}
+                            </li>
+                        </ul>
+                        <p class="ps-1">Calories: {{ this.test_data[0].recipe.calories.toFixed(2) }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,11 +52,11 @@ export default {
         async sendApiRequest() {
            const API_ID = "811fd5df"
            const API_KEY = "53a0c98c7c38b1776435f72a5e256d02"
-           const response = await fetch(`https://api.edamam.com/search?app_id=${ API_ID }&app_key=${ API_KEY }&q=pizza`)
+           const response = await fetch(`https://api.edamam.com/search?app_id=${ API_ID }&app_key=${ API_KEY }&q=chicken`)
            const data = await response.json();
            this.test_data = data.hits;
         //    console.dir(data);
-        //    console.log(this.test_data);
+              console.log(this.test_data);
         //    this.test_data.forEach((value,index)=>{
         //        console.log(value,index);
         //    });
