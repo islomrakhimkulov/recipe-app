@@ -1,5 +1,6 @@
 <template>
     <div class="container py-5">
+        <Modal :recipe-item="test_data"/>
         <b-input-group class="mt-3">
             <b-form-input v-model="search" placeholder="Search"></b-form-input>
             <b-button @keyup="onSearch()">Search</b-button>
@@ -7,17 +8,20 @@
         <h2 class="p-4 text-white text-center">Recipe App with Edamam API</h2>
         <div class="row gy-3">
            <div class="col-md-6 m-auto">
-                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index">
+                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index" v-b-modal.modalPopover>
                     <img :src="info.recipe.image" class="card-img-top" alt="card-image">
                     <div class="card-body">
-                        <div class="card-title h2 fw-bolder">{{ info.recipe.label }}</div>
+                        <div class="h2 fw-bolder">{{ info.recipe.label }}</div>
                         <span class="fw-bold h4">Ingredients:</span><br>
                         <ul>
                             <li v-for="(ingredient, index) in info.recipe.ingredientLines" :key="index">
                                 {{ ingredient }}
                             </li>
                         </ul>
-                        <p class="ps-1 h6">Calories: {{ info.recipe.calories.toFixed(2) }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="ps-1 h6">Calories: {{ info.recipe.calories.toFixed(2) }}</p>
+                            <b-button v-b-modal.modalPopover variant="outline-info" size="sm" @click="showModal()">Ba'tafsil</b-button>
+                        </div>
                     </div> 
                 </div>
             </div>
@@ -27,9 +31,12 @@
 
 <script>
 import debounce from "debounce";
-
+import Modal from './Modal.vue';
 export default {
     name: 'RecipeApp',
+    components: {
+        Modal
+    },
     data: () => ({
         test_data: [],
         searchValue: "chicken",
@@ -83,6 +90,9 @@ export default {
             }
 
             this.debouncedSearch();
+        },
+        showModal() {
+            console.log(this.test_data);
         },
     },
     mounted(){

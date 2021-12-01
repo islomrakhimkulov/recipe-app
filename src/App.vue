@@ -22,4 +22,5 @@ body{
 }
 </style>
 
-// day one 28.11.2021 
+// day 1 28.11.2021 
+// day 2 project ready `&#128513;`
