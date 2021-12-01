@@ -1,6 +1,6 @@
 <template>
     <div class="container py-5">
-        <Modal :recipe-item="test_data"/>
+        <Modal :recipe-item="info_data"/>
         <b-input-group class="mt-3">
             <b-form-input v-model="search" placeholder="Search"></b-form-input>
             <b-button @keyup="onSearch()">Search</b-button>
@@ -20,7 +20,7 @@
                         </ul>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="ps-1 h6">Calories: {{ info.recipe.calories.toFixed(2) }}</p>
-                            <b-button v-b-modal.modalPopover variant="outline-info" size="sm" @click="showModal()">Ba'tafsil</b-button>
+                            <b-button v-b-modal.modalPopover variant="outline-info" size="sm" @click="showModal(info)">Ba'tafsil</b-button>
                         </div>
                     </div> 
                 </div>
@@ -39,6 +39,7 @@ export default {
     },
     data: () => ({
         test_data: [],
+        info_data: {},
         searchValue: "chicken",
         debouncedSearch: null,
     }),
@@ -91,8 +92,10 @@ export default {
 
             this.debouncedSearch();
         },
-        showModal() {
-            console.log(this.test_data);
+        showModal(info) {
+            this.info_data = this.info; 
+            console.log(info);
+            
         },
     },
     mounted(){

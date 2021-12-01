@@ -2,11 +2,11 @@
     <div>
         <div>
             <b-modal id="modalPopover" title="Modal with Popover" ok-only>
-                <h2> {{ recipeItem[0].recipe.label }} </h2>
-                <p>CuisineType: {{ recipeItem[0].recipe.cuisineType[0]}} </p>
-                <p>TotalWeight: {{ recipeItem[0].recipe.totalWeight.toFixed(2)}} </p>
-                <p>Source: {{ recipeItem[0].recipe.source}} </p>
-                <p>MealType: {{recipeItem[0].recipe.mealType[0]}} </p>
+                <h2> {{ recipeItem.recipe.recipe.label }} </h2>
+                <p>CuisineType: {{ recipeItem.recipe.cuisineType}} </p>
+                <p>TotalWeight: {{ recipeItem.recipe.totalWeight.toFixed(2)}} </p>
+                <p>Source: {{ recipeItem.recipe.source}} </p>
+                <p>MealType: {{recipeItem.recipe.mealType}} </p>
             </b-modal>
         </div>
     </div>
@@ -17,7 +17,7 @@ export default {
     name: 'Modal',
     props: {
         recipeItem: {
-            type: Array,
+            type: Object,
             default: () => ({
                 recipe: Object,
             }),
