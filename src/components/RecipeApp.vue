@@ -8,7 +8,7 @@
         <h2 class="p-4 text-white text-center">Recipe App with Edamam API</h2>
         <div class="row gy-3">
            <div class="col-md-6 m-auto">
-                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index" v-b-modal.modalPopover>
+                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index">
                     <img :src="info.recipe.image" class="card-img-top" alt="card-image">
                     <div class="card-body">
                         <div class="h2 fw-bolder">{{ info.recipe.label }}</div>
@@ -20,7 +20,7 @@
                         </ul>
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="ps-1 h6">Calories: {{ info.recipe.calories.toFixed(2) }}</p>
-                            <b-button v-b-modal.modalPopover variant="outline-info" size="sm" @click="showModal(info)">Ba'tafsil</b-button>
+                            <b-button v-b-modal.modalPopover variant="outline-info" size="sm" @click="showModal(info)">More Info</b-button>
                         </div>
                     </div> 
                 </div>
@@ -93,9 +93,8 @@ export default {
             this.debouncedSearch();
         },
         showModal(info) {
-            this.info_data = this.info; 
-            console.log(info);
-            
+            this.info_data = info; 
+            console.log(this.info_data); 
         },
     },
     mounted(){
@@ -114,3 +113,5 @@ ul li {
     list-style: none;
 }
 </style>
+
+// Project ready
