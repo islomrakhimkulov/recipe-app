@@ -2,7 +2,7 @@
     <div>
         <div>
             <b-modal id="modalPopover" title="Modal with Popover" ok-only>
-                <h2> {{ recipeItem.recipe.label }} </h2>
+                <h2 class="text-center"> {{ recipeItem.recipe.label }} </h2>
                 <div class="recipe-info">
                     <p>Calories: {{ recipeItem.recipe.calories.toFixed(2) }}</p>
                     <p> Cautions: {{ recipeItem.recipe.cautions[0] }} </p>
@@ -28,9 +28,9 @@ export default {
             }),
         },
     },
-    data: () => ({
-        recipe: Object,
-    }),
+    // data: () => ({
+    //     recipe: Object,
+    // }),
     
 }
 </script>

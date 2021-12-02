@@ -89,7 +89,7 @@ export default {
             if (!this.debouncedSearch) {
                 this.debouncedSearch = debounce(this.sendApiRequest, 300);
             }
-
+            
             this.debouncedSearch();
         },
         showModal(info) {
