@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <b-modal id="modalPopover" title="Modal with Popover" ok-only>
+            <b-modal id="modalPopover" title="Modal with Popover" ok-title-html="Back" ok-only>
                 <h2 class="text-center"> {{ recipeItem.recipe.label }} </h2>
                 <div class="recipe-info">
                     <p>Calories: {{ recipeItem.recipe.calories.toFixed(2) }}</p>

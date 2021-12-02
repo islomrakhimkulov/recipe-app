@@ -10,7 +10,7 @@ import RecipeApp from './components/RecipeApp';
 export default {
   name: 'App',
   components: {
-    RecipeApp
+    RecipeApp,
   }
 }
 </script>
