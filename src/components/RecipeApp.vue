@@ -8,7 +8,7 @@
         <h2 class="p-4 text-white text-center">Recipe App with Edamam API</h2>
         <div class="row gy-3">
            <div class="col-md-6 m-auto">
-                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index" data-aos="zoom-in-left">
+                <div class="card mb-4 shadow" v-for="(info,index) in filteredList" :key="index" data-aos="zoom-in">
                     <img :src="info.recipe.image" class="card-img-top" alt="card-image">
                     <div class="card-body">
                         <div class="h2 fw-bolder">{{ info.recipe.label }}</div>
