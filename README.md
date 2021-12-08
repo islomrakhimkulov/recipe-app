@@ -1,5 +1,5 @@
 # recipe-app
-# Demo version: https://recipeapp-vue.netlify.app/
+# Demo version: recipeapp-vue.netlify.app/
 ## Project setup
 ```
 npm install
